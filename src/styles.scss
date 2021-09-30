@@ -1,0 +1,193 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$yebelo-task-primary: mat-palette($mat-indigo);
+$yebelo-task-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$yebelo-task-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$yebelo-task-theme: mat-light-theme((color: (primary: $yebelo-task-primary,
+      accent: $yebelo-task-accent,
+      warn: $yebelo-task-warn,
+    )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($yebelo-task-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.ab {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.rel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 2;
+}
+
+.v-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.card {
+  border: 0;
+  height: 400px;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);
+  margin: 20px;
+  padding: 1.5rem;
+}
+
+  .c-p-name {
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px;
+    color: #233782;
+  }
+
+  .c-p-description {
+    text-align: center;
+    color: #757575;
+    padding-bottom: 15px;
+  }
+
+  .c-p-amount {
+    font-size: 25px;
+    text-align: right;
+    padding: 1rem 0;
+    font-weight: 600;
+    color: #ef1a62;
+    margin-left: auto;
+  }
+
+  .h20 {
+    height: 20px;
+  }
+
+  .c-p-avail {
+    font-size: 12px;
+    color: #989898;
+  }
+
+  .c-p-count {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 5px;
+    color: black;
+  }
+
+.heading {
+  font-size: 25px;
+  padding: 15px;
+  font-weight: 500;
+  color: #233782;
+}
+
+.f-label {
+  font-size: 15px;
+  color: #737272;
+  padding-right: 1rem;
+}
+
+.mat-radio-button {
+  margin-right: 1rem !important;
+}
+
+.stockClose {
+  opacity: 0.6;
+  background-color: #02020212 !important;
+
+  &.card-hover:hover {
+    margin: 20px !important;
+    cursor: auto;
+    .view-btn{
+      display: none;
+    }
+  }
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.ab-sc {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #dd1f1f;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.card-hover:hover {
+  // margin: 10px !important;
+  transition: 2s;
+  cursor: pointer;
+  position: relative;
+  // background-color: rgb(255 64 129 / 7%);
+}
+
+.add{
+  color: #23c023;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: underline;
+}

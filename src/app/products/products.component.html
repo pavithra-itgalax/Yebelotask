@@ -1,0 +1,67 @@
+<div class="v-flex h100 p-3">
+    <div class="flex-1 relative h100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 heading">
+                    Recommended Organic Products
+                </div>
+                <div class="col-md-12 py-3">
+                    <label class="f-label">Filter by Category</label>
+                    <mat-radio-group [(ngModel)]="category" name="category" (change)="getCategorizedList()">
+                        <mat-radio-button value="All">--All--</mat-radio-button>
+                        <mat-radio-button value="Premium">Premium</mat-radio-button>
+                        <mat-radio-button value="Tamilnadu">Tamilnadu</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="row">
+                <ng-container *ngFor="let productData of productList">
+                    <div class="col-md-3">
+                        <div class="card card-hover" [ngClass]="{'stockClose': productData.p_availability === 0}">
+                            <div class="v-flex h100">
+                                <ng-container *ngIf="productData.p_availability === 0">
+                                    <div class="ab-sc">
+                                        -- Stock Closed --
+                                    </div>
+                                </ng-container>
+                                <div class="flex-1 relative h100">
+                                    <div class="v-flex h100">
+                                        <div class="flex-1 relative h100">
+                                            <div class="w100 h100 d-flex align-items-center justify-content-center">
+                                                <img [src]="productData.p_image" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="c-p-name">
+                                            {{productData.p_name}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="c-p-description">
+                                    <ng-container *ngIf="productData.p_details !== undefined">
+                                        {{productData.p_details}}
+                                    </ng-container>
+                                    <ng-container *ngIf="productData.p_details === undefined">
+                                        <div class="h20"></div>
+                                    </ng-container>
+                                </div>
+                                <div class="d-flex pt-3">
+                                    <div class="c-p-avail">Available Pieces
+                                        <div class="c-p-count">
+                                            {{productData.p_availability}}
+                                        </div>
+                                    </div>
+                                    <div class="c-p-amount">
+                                        ${{productData.p_cost}}
+                                    </div>
+                                </div>
+                                <div class="add" (click)="addtoCart(productData)">
+                                    Add to Cart 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
